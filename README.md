@@ -80,7 +80,7 @@ $$
 $$
 
 $$
-	\begin{aligned}
+\begin{aligned}
 	\left\{
 	\begin{array}{cr}
 		I_x\dot{\omega}_x &= (I_y-I_z)\omega_z\omega_y - Tl(\sin \delta_2 +\sin \delta_4)\\
@@ -114,7 +114,6 @@ $$
 	\right.
 	\end{aligned}
 $$
-
 在Hoverjet中，单个电动涵道风扇提供主推力 $\boldsymbol{T}$ ，假定该推力的方向是机体坐标系$B$的$z$轴正方向平行。
 $$
 \begin{align}
@@ -123,8 +122,6 @@ $$
 $$
 推力 $\boldsymbol{T}$ 主要负责抵消重力，但是主推力的一部分可以偏转以控制姿态推力矢量。这里主要是通过燃气舵来改变涵道风扇喷出气流方向来产生XY平面的力，由此产生的偏转主推力的合力为 $\boldsymbol{T}_{TVC}$。力 $\boldsymbol{T}_{TVC}$可以通过旋转燃气舵使推力$\boldsymbol{T}$ 偏转来调节。燃气舵由舵机$s_1$、$s_2$、$s_3$和$s_4$产生的舵偏角$\delta_1$、$\delta_2$、$\delta_3$和$\delta_4$，它们与两个电动涵道风扇的油门$\sigma_1$、$\sigma_2$一起代表推力矢量控制的实际指令。因此确定油门命令和产生的力之间的映射关系。为了方便进行控制，不妨添加约束$\sigma_1 = \sigma_2 = \sigma$。
 $$
-\begin{equation}
-
 \begin{Bmatrix}
  \sigma_1 \\ \sigma_2 \\ \delta_1 \\\delta_2 \\\delta_3 \\\delta_4
 \end{Bmatrix}
@@ -136,7 +133,6 @@ $$
 \end{Bmatrix}
 \longleftrightarrow
 \boldsymbol{T}_{TVC}
-\end{equation}
 $$
 
 ### 姿态控制实验
