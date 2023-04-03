@@ -67,6 +67,8 @@ $$
 #### Hoverjet 数学建模
 
 为了简化模型，不妨增加约束$T_1 = T_2$，得到Hoverjet数学模型如下：
+
+**线运动方程**
 $$
 \begin{align}
 	\left\{
@@ -78,7 +80,7 @@ $$
 	\right.
 \end{align}
 $$
-
+**角运动方程**
 $$
 \begin{aligned}
 	\left\{
@@ -90,7 +92,9 @@ $$
 	\right.
 	\end{aligned}
 $$
+**运动学模型**
 
+3 个姿态角速率和机体坐标轴系下的三个角速率之间的关系如下
 $$
 \begin{aligned}
 	\left\{
@@ -102,7 +106,7 @@ $$
 	\right.
 	\end{aligned}
 $$
-
+位移运动方程如下
 $$
 \begin{aligned}
 	\left\{
@@ -134,6 +138,7 @@ $$
 \longleftrightarrow
 \boldsymbol{T}_{TVC}
 $$
+
 
 ### 姿态控制实验
 
