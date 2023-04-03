@@ -44,23 +44,7 @@ Hoverjet 的动力总成包括两个电动涵道风扇组成的主引擎，以�
 
 单个涵道风扇在燃气舵机作用下，所产生的力如下：
 
-![](http://latex.codecogs.com/svg.latex?\begin{align*}
-	\begin{split}
-		\label{eq:vanes_dynamics}
-		\boldsymbol{F}_1 &\approx
-		\left(
-		\begin{array}{ccc}
-			T_1\sin\delta_1&T_1\sin\delta_2&T_1
-		\end{array}
-		\right)^\top
-		\\ 
-		\boldsymbol{F}_2 &\approx
-		\left(
-		\begin{array}{ccc}
-			T_2\sin\delta_3&T_2\sin\delta_4&T_2
-		\end{array}
-		\right)^\top\end{split}
-\end{align*})
+![svg0](README.assets/svg0.svg)
 
 #### Hoverjet 数学建模
 
@@ -68,73 +52,29 @@ Hoverjet 的动力总成包括两个电动涵道风扇组成的主引擎，以�
 
 **线运动方程**
 
-![](http://latex.codecogs.com/svg.latex?\begin{align*}
-	\left\{
-	\begin{array}{cl}
-		m\ddot{x} =& T[c_{11}(\sin \delta_1 + \sin \delta_3)+c_{12}(\sin \delta_2 + \sin \delta_4)+c_{13}2] \\
-		m\ddot{y} =& T[c_{21}(\sin \delta_1 + \sin \delta_3)+c_{22}(\sin \delta_2 + \sin \delta_4)+c_{23}2] \\
-		m\ddot{z} =& T[c_{31}(\sin \delta_1 + \sin \delta_3)+c_{32}(\sin \delta_2 + \sin \delta_4)+c_{33}2] -mg
-	\end{array}
-	\right.
-\end{align*})
+![](README.assets/svg1.svg)
 
 **角运动方程**
 
-![](http://latex.codecogs.com/svg.latex?\begin{aligned}
-	\left\{
-	\begin{array}{cr}
-		I_x\dot{\omega}_x &= (I_y-I_z)\omega_z\omega_y - Tl(\sin \delta_2 +\sin \delta_4)\\
-		I_y\dot{\omega}_y &= (I_z-I_x)\omega_x\omega_z + Tl(\sin \delta_1+ \sin \delta_3) \\
-		I_z\dot{\omega}_z &= (I_x-I_y)\omega_x\omega_y + Td(\sin \delta_3 - \sin \delta_1)
-	\end{array}
-	\right.
-	\end{aligned})
+![](README.assets/svg2.svg)
 
 **运动学模型**
 
 3 个姿态角速率和机体坐标轴系下的三个角速率之间的关系如下
 
-![](http://latex.codecogs.com/svg.latex?\begin{align*}
-	\left\{
-	\begin{array}{cl}
-		\dot{\phi} &= \omega_x + (\omega_z \cos\phi  + \omega_y \sin\phi )\tan\theta  \\
-		\dot{\theta} &= \omega_y\cos\phi -\omega_z\sin\phi   \\
-		\dot{\psi} &= \frac{1}{\cos\theta }(\omega_z\cos\phi +\omega_y\sin\phi  )
-	\end{array}
-	\right.
-	\end{align*})
+![](README.assets/svg3.svg)
 
 位移运动方程如下
 
-![](http://latex.codecogs.com/svg.latex?\begin{aligned}
-	\left\{
-	\begin{array}{cr}
-		\dot{x} = uc_{11}+vc_{12}+wc_{13} \\
-		\dot{y} = uc_{21}+vc_{22}+wc_{23} \\
-		\dot{z} = uc_{31}+vc_{32}+wc_{33} 
-	\end{array}
-	\right.
-	\end{aligned})
+![](README.assets/svg4.svg)
 
 在Hoverjet中，单个电动涵道风扇提供主推力 $\boldsymbol{T}$ ，假定该推力的方向是机体坐标系$B$的$z$轴正方向平行。
 
-![](http://latex.codecogs.com/svg.latex?\begin{align*}
- \boldsymbol{T} = \Vert \boldsymbol{T} \Vert \textbf{e}^B_z
-\end{align*})
+![](README.assets/svg5.svg)
 
 推力 $\boldsymbol{T}$ 主要负责抵消重力，但是主推力的一部分可以偏转以控制姿态推力矢量。这里主要是通过燃气舵来改变涵道风扇喷出气流方向来产生XY平面的力，由此产生的偏转主推力的合力为 $\boldsymbol{T}_{TVC}$。力 $\boldsymbol{T}_{TVC}$可以通过旋转燃气舵使推力$\boldsymbol{T}$ 偏转来调节。燃气舵由舵机$s_1$、$s_2$、$s_3$和$s_4$产生的舵偏角$\delta_1$、$\delta_2$、$\delta_3$和$\delta_4$，它们与两个电动涵道风扇的油门$\sigma_1$、$\sigma_2$一起代表推力矢量控制的实际指令。因此确定油门命令和产生的力之间的映射关系。为了方便进行控制，不妨添加约束$\sigma_1 = \sigma_2 = \sigma$。
 
-![](http://latex.codecogs.com/svg.latex?\begin{Bmatrix}
- \sigma_1 \\ \sigma_2 \\ \delta_1 \\\delta_2 \\\delta_3 \\\delta_4
-\end{Bmatrix}
-\longleftrightarrow
- \boldsymbol{T}_{TVC}
-\stackrel{\sigma_1 = \sigma_2 = \sigma}{\implies }
- \begin{Bmatrix}
-\sigma \\ \delta_1 \\\delta_2 \\\delta_3 \\\delta_4
-\end{Bmatrix}
-\longleftrightarrow
-\boldsymbol{T}_{TVC})
+![](README.assets/svg6.svg)
 
 ### 姿态控制实验
 
